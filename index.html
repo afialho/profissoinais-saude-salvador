@@ -3,115 +3,121 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Top Profissionais de Saúde — Salvador, BA</title>
+  <title>Top Profissionais de Saude — Salvador, BA</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     :root {
-      --bg: #0f1117;
-      --surface: #1a1d2e;
-      --card: #21253a;
-      --border: #2e3450;
-      --accent: #6c63ff;
-      --gold: #f5c842;
-      --silver: #b0bec5;
-      --bronze: #cd7f32;
-      --text: #e2e8f0;
-      --muted: #8892a4;
-      --online: #00d4aa;
-      --tag-bg: #2e3450;
-      --convenio: #22c55e;
-      --particular: #f97316;
+      --bg: #f8f9fc;
+      --surface: #ffffff;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --accent: #2563eb;
+      --accent-light: rgba(37,99,235,0.06);
+      --gold: #ca8a04;
+      --silver: #64748b;
+      --bronze: #a16207;
+      --text: #1e293b;
+      --muted: #64748b;
+      --online: #059669;
+      --tag-bg: #f1f5f9;
+      --convenio: #059669;
+      --particular: #dc2626;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; -webkit-font-smoothing: antialiased; }
 
-    header { background: linear-gradient(135deg, #1a1d2e, #0f1117); border-bottom: 1px solid var(--border); padding: 2rem 1.5rem 1.5rem; text-align: center; }
-    header h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.4rem; }
-    header p { color: var(--muted); font-size: 0.9rem; }
-    .badge { display: inline-block; background: var(--tag-bg); border: 1px solid var(--border); border-radius: 999px; padding: 0.25rem 0.75rem; font-size: 0.75rem; color: var(--muted); margin-top: 0.75rem; }
+    header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 2.5rem 1.5rem 2rem; text-align: center; }
+    header h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.4rem; }
+    header p { color: var(--muted); font-size: 0.88rem; }
+    .badge { display: inline-block; background: var(--tag-bg); border: 1px solid var(--border); border-radius: 999px; padding: 0.25rem 0.75rem; font-size: 0.72rem; color: var(--muted); margin-top: 0.75rem; }
 
-    nav { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border); background: var(--surface); position: sticky; top: 0; z-index: 100; }
-    nav a { text-decoration: none; color: var(--muted); font-size: 0.8rem; font-weight: 500; padding: 0.35rem 0.8rem; border-radius: 999px; border: 1px solid var(--border); transition: all 0.15s; }
-    nav a:hover { color: var(--text); border-color: var(--accent); }
+    nav { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); background: var(--surface); position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+    nav a { text-decoration: none; color: var(--muted); font-size: 0.78rem; font-weight: 500; padding: 0.4rem 0.85rem; border-radius: 999px; border: 1px solid var(--border); transition: all 0.15s; display: inline-flex; align-items: center; gap: 0.4rem; }
+    nav a:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-light); }
+    nav a .lucide { width: 14px; height: 14px; }
 
     .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
     .section { margin-bottom: 3.5rem; }
     .section-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
-    .section-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
-    .section-header h2 { font-size: 1.2rem; font-weight: 700; }
-    .section-header .count { margin-left: auto; font-size: 0.75rem; color: var(--muted); background: var(--tag-bg); padding: 0.2rem 0.6rem; border-radius: 999px; }
+    .section-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .section-icon .lucide { width: 18px; height: 18px; }
+    .section-header h2 { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.01em; }
+    .section-header .count { margin-left: auto; font-size: 0.72rem; color: var(--muted); background: var(--tag-bg); padding: 0.2rem 0.6rem; border-radius: 999px; }
 
     .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1rem; }
 
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem; position: relative; transition: border-color 0.15s; display: flex; flex-direction: column; gap: 0.75rem; }
-    .card:hover { border-color: var(--accent); }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; position: relative; transition: border-color 0.15s, box-shadow 0.15s; display: flex; flex-direction: column; gap: 0.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+    .card:hover { border-color: var(--accent); box-shadow: 0 4px 12px rgba(37,99,235,0.08); }
     .card.rank-1 { border-top: 2px solid var(--gold); }
     .card.rank-2 { border-top: 2px solid var(--silver); }
     .card.rank-3 { border-top: 2px solid var(--bronze); }
 
     .rank-badge { position: absolute; top: 1rem; right: 1rem; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; }
-    .rank-1 .rank-badge { background: var(--gold); color: #000; }
-    .rank-2 .rank-badge { background: var(--silver); color: #000; }
-    .rank-3 .rank-badge { background: var(--bronze); color: #fff; }
-    .rank-4 .rank-badge, .rank-5 .rank-badge { background: var(--tag-bg); color: var(--muted); }
+    .rank-1 .rank-badge { background: #fef3c7; color: var(--gold); border: 1px solid #fde68a; }
+    .rank-2 .rank-badge { background: #f1f5f9; color: var(--silver); border: 1px solid var(--border); }
+    .rank-3 .rank-badge { background: #fef3c7; color: var(--bronze); border: 1px solid #fde68a; }
+    .rank-4 .rank-badge, .rank-5 .rank-badge { background: var(--tag-bg); color: var(--muted); border: 1px solid var(--border); }
 
-    .card-name { font-size: 1rem; font-weight: 700; padding-right: 2rem; }
+    .card-name { font-size: 1rem; font-weight: 700; padding-right: 2rem; letter-spacing: -0.01em; }
     .card-sub { font-size: 0.75rem; color: var(--muted); }
 
     .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-    .tag { font-size: 0.68rem; padding: 0.2rem 0.55rem; border-radius: 999px; background: var(--tag-bg); color: var(--muted); border: 1px solid var(--border); }
-    .tag.online { color: var(--online); border-color: var(--online); background: rgba(0,212,170,0.08); }
+    .tag { font-size: 0.68rem; padding: 0.2rem 0.55rem; border-radius: 999px; background: var(--tag-bg); color: var(--muted); border: 1px solid var(--border); display: inline-flex; align-items: center; gap: 0.25rem; }
+    .tag .lucide { width: 11px; height: 11px; }
+    .tag.online { color: var(--online); border-color: rgba(5,150,105,0.3); background: rgba(5,150,105,0.06); }
 
-    .price-box { background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: 10px; padding: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .price-box { background: var(--tag-bg); border: 1px solid var(--border); border-radius: 10px; padding: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; }
     .price-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; }
     .price-label { color: var(--muted); }
     .price-value { font-weight: 600; color: var(--text); }
     .price-value.na { color: var(--muted); font-weight: 400; font-style: italic; }
     .price-divider { height: 1px; background: var(--border); }
     .convenio-badge { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.7rem; font-weight: 600; padding: 0.25rem 0.6rem; border-radius: 999px; }
-    .convenio-badge.sim { background: rgba(34,197,94,0.12); color: var(--convenio); border: 1px solid rgba(34,197,94,0.3); }
-    .convenio-badge.nao { background: rgba(249,115,22,0.1); color: var(--particular); border: 1px solid rgba(249,115,22,0.3); }
+    .convenio-badge.sim { background: rgba(5,150,105,0.08); color: var(--convenio); border: 1px solid rgba(5,150,105,0.25); }
+    .convenio-badge.nao { background: rgba(220,38,38,0.06); color: var(--particular); border: 1px solid rgba(220,38,38,0.2); }
     .convenios-list { font-size: 0.68rem; color: var(--muted); line-height: 1.6; }
 
     .contact-list { list-style: none; }
-    .contact-list li { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.78rem; color: var(--muted); padding: 0.18rem 0; }
+    .contact-list li { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.78rem; color: var(--muted); padding: 0.2rem 0; }
+    .contact-list li .lucide { width: 14px; height: 14px; flex-shrink: 0; margin-top: 1px; }
     .contact-list li a { color: var(--accent); text-decoration: none; }
     .contact-list li a:hover { text-decoration: underline; }
 
-    .why { background: rgba(108,99,255,0.06); border-left: 2px solid var(--accent); border-radius: 0 6px 6px 0; padding: 0.6rem 0.75rem; font-size: 0.75rem; color: var(--text); line-height: 1.5; }
+    .why { background: var(--accent-light); border-left: 2px solid var(--accent); border-radius: 0 6px 6px 0; padding: 0.6rem 0.75rem; font-size: 0.75rem; color: var(--text); line-height: 1.55; }
     .why-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); font-weight: 700; margin-bottom: 0.3rem; }
 
-    .pending-card { background: var(--card); border: 1px dashed var(--border); border-radius: 14px; padding: 2rem; text-align: center; color: var(--muted); }
+    .pending-card { background: var(--card); border: 1px dashed var(--border); border-radius: 12px; padding: 2rem; text-align: center; color: var(--muted); }
     .spinner { width: 28px; height: 28px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 0.75rem; }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    .market-avg { background: rgba(108,99,255,0.07); border: 1px solid rgba(108,99,255,0.2); border-radius: 10px; padding: 0.75rem 1rem; font-size: 0.78rem; color: var(--muted); margin-bottom: 1.25rem; }
+    .market-avg { background: var(--accent-light); border: 1px solid rgba(37,99,235,0.15); border-radius: 10px; padding: 0.75rem 1rem; font-size: 0.78rem; color: var(--muted); margin-bottom: 1.25rem; }
     .market-avg strong { color: var(--text); }
 
-    footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.75rem; border-top: 1px solid var(--border); line-height: 1.8; }
+    footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.72rem; border-top: 1px solid var(--border); line-height: 1.8; background: var(--surface); }
 
-    .color-cardio { background: rgba(239,68,68,0.15); }
-    .color-endo   { background: rgba(59,130,246,0.15); }
-    .color-nutri  { background: rgba(34,197,94,0.15); }
-    .color-nutro  { background: rgba(168,85,247,0.15); }
-    .color-pt     { background: rgba(249,115,22,0.15); }
-    .color-gastro { background: rgba(20,184,166,0.15); }
+    .color-cardio { background: rgba(239,68,68,0.08); color: #dc2626; }
+    .color-endo   { background: rgba(37,99,235,0.08); color: #2563eb; }
+    .color-nutri  { background: rgba(5,150,105,0.08); color: #059669; }
+    .color-nutro  { background: rgba(147,51,234,0.08); color: #9333ea; }
+    .color-pt     { background: rgba(234,88,12,0.08); color: #ea580c; }
+    .color-gastro { background: rgba(13,148,136,0.08); color: #0d9488; }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Top Profissionais de Saúde</h1>
-  <p>Salvador, Bahia — e atendimento online</p>
-  <span class="badge">Pesquisa realizada em 01/04/2026 · 6 especialidades · Top 5 cada</span>
+  <h1>Top Profissionais de Saude</h1>
+  <p>Salvador, Bahia &mdash; e atendimento online</p>
+  <span class="badge">Pesquisa realizada em 01/04/2026 &middot; 6 especialidades &middot; Top 5 cada</span>
 </header>
 
 <nav>
-  <a href="#cardio">❤️ Cardiologia</a>
-  <a href="#endo">🔬 Endocrinologia</a>
-  <a href="#nutri">🥗 Nutrição</a>
-  <a href="#nutro">💊 Nutrologia</a>
-  <a href="#pt">🏋️ Personal Trainer</a>
-  <a href="#gastro">🫁 Gastroenterologia</a>
+  <a href="#cardio"><i data-lucide="heart-pulse"></i> Cardiologia</a>
+  <a href="#endo"><i data-lucide="flask-conical"></i> Endocrinologia</a>
+  <a href="#nutri"><i data-lucide="leaf"></i> Nutricao</a>
+  <a href="#nutro"><i data-lucide="pill"></i> Nutrologia</a>
+  <a href="#pt"><i data-lucide="dumbbell"></i> Personal Trainer</a>
+  <a href="#gastro"><i data-lucide="stethoscope"></i> Gastroenterologia</a>
 </nav>
 
 <div class="container">
@@ -119,7 +125,7 @@
   <!-- ===== CARDIOLOGIA ===== -->
   <section class="section" id="cardio">
     <div class="section-header">
-      <div class="section-icon color-cardio">❤️</div>
+      <div class="section-icon color-cardio"><i data-lucide="heart-pulse"></i></div>
       <h2>Cardiologistas</h2>
       <span class="count">Top 5</span>
     </div>
@@ -127,123 +133,123 @@
 
       <div class="card rank-1">
         <div class="rank-badge">1</div>
-        <div class="card-name">Dr. Fábio Lordelo</div>
-        <div class="card-sub">Cardiologia Clínica · Ecocardiografia</div>
+        <div class="card-name">Dr. Fabio Lordelo</div>
+        <div class="card-sub">Cardiologia Clinica &middot; Ecocardiografia</div>
         <div class="tags">
-          <span class="tag online">Atende Online</span>
+          <span class="tag online"><i data-lucide="video"></i> Atende Online</span>
           <span class="tag">CRM-BA 25261</span>
-          <span class="tag">664 avaliações ⭐ 5.0</span>
+          <span class="tag"><i data-lucide="star"></i> 664 avaliacoes &middot; 5.0</span>
         </div>
         <div class="price-box">
           <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value">A partir de R$ 500</span></div>
           <div class="price-row"><span class="price-label">Teleconsulta</span><span class="price-value">R$ 120</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge nao">✕ Só particular</span></div>
-          <div class="convenios-list">Emite nota fiscal · Aceita PIX, cartão e transferência</div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge nao">So particular</span></div>
+          <div class="convenios-list">Emite nota fiscal &middot; Aceita PIX, cartao e transferencia</div>
         </div>
         <ul class="contact-list">
-          <li>📍 R. Prof. Severo Pessoa, 120 – Federação, Salvador-BA</li>
-          <li>📞 (71) 2106-1010</li>
-          <li>💬 (71) 98108-4571 (WhatsApp)</li>
-          <li>📧 consultoriodrfabiolordelo@gmail.com</li>
-          <li>📸 <a href="https://instagram.com/drfabiolordelo" target="_blank">@drfabiolordelo</a></li>
-          <li>🌐 <a href="https://drfabiolordelo.com.br" target="_blank">drfabiolordelo.com.br</a></li>
+          <li><i data-lucide="map-pin"></i> R. Prof. Severo Pessoa, 120 &ndash; Federacao, Salvador-BA</li>
+          <li><i data-lucide="phone"></i> (71) 2106-1010</li>
+          <li><i data-lucide="message-circle"></i> (71) 98108-4571 (WhatsApp)</li>
+          <li><i data-lucide="mail"></i> consultoriodrfabiolordelo@gmail.com</li>
+          <li><i data-lucide="instagram"></i> <a href="https://instagram.com/drfabiolordelo" target="_blank">@drfabiolordelo</a></li>
+          <li><i data-lucide="globe"></i> <a href="https://drfabiolordelo.com.br" target="_blank">drfabiolordelo.com.br</a></li>
         </ul>
-        <div class="why"><div class="why-label">Por que é o melhor</div>Cardiologista mais bem avaliado de Salvador — 664 opiniões no Doctoralia e 150+ no Google, todos com nota máxima. Realiza pessoalmente todos os exames, incluindo ecocardiogramas. Teleconsulta acessível (R$ 120).</div>
+        <div class="why"><div class="why-label">Por que e o melhor</div>Cardiologista mais bem avaliado de Salvador &mdash; 664 opinioes no Doctoralia e 150+ no Google, todos com nota maxima. Realiza pessoalmente todos os exames, incluindo ecocardiogramas. Teleconsulta acessivel (R$ 120).</div>
       </div>
 
       <div class="card rank-2">
         <div class="rank-badge">2</div>
         <div class="card-name">Dr. Ticheco Souza</div>
-        <div class="card-sub">Cardiologia Clínica · Prevenção Cardiovascular</div>
+        <div class="card-sub">Cardiologia Clinica &middot; Prevencao Cardiovascular</div>
         <div class="tags">
           <span class="tag">CRM-BA 21535</span>
-          <span class="tag">618 avaliações ⭐ 5.0</span>
+          <span class="tag"><i data-lucide="star"></i> 618 avaliacoes &middot; 5.0</span>
           <span class="tag">14+ anos</span>
         </div>
         <div class="price-box">
           <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value">R$ 690</span></div>
-          <div class="price-row"><span class="price-label">Teleconsulta</span><span class="price-value na">Não informado</span></div>
+          <div class="price-row"><span class="price-label">Teleconsulta</span><span class="price-value na">Nao informado</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge sim">✓ Aceita convênio</span></div>
-          <div class="convenios-list">Amil · Bradesco · Unimed · SulAmérica · Planserv · FUSEX · Porto Seguro · Cassi · GEAP · Mediservice · AMS Petrobrás · Golden Cross · e outros 15+</div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge sim">Aceita convenio</span></div>
+          <div class="convenios-list">Amil &middot; Bradesco &middot; Unimed &middot; SulAmerica &middot; Planserv &middot; FUSEX &middot; Porto Seguro &middot; Cassi &middot; GEAP &middot; Mediservice &middot; AMS Petrobras &middot; Golden Cross &middot; e outros 15+</div>
         </div>
         <ul class="contact-list">
-          <li>📍 Av. Prof. Magalhães Neto, 1541 – Hospital da Bahia, Pituba</li>
-          <li>📞 (71) 4105-2019</li>
-          <li>💬 (71) 99943-0857 (WhatsApp)</li>
+          <li><i data-lucide="map-pin"></i> Av. Prof. Magalhaes Neto, 1541 &ndash; Hospital da Bahia, Pituba</li>
+          <li><i data-lucide="phone"></i> (71) 4105-2019</li>
+          <li><i data-lucide="message-circle"></i> (71) 99943-0857 (WhatsApp)</li>
         </ul>
-        <div class="why"><div class="why-label">Por que é o 2º</div>Formado pela UFBA, pós-graduado pela Fundação Baiana de Cardiologia. Membro da SBC. Reconhecido pela didática excepcional e pela maior lista de convênios aceitos entre os cardiologistas do ranking.</div>
+        <div class="why"><div class="why-label">Por que e o 2o</div>Formado pela UFBA, pos-graduado pela Fundacao Baiana de Cardiologia. Membro da SBC. Reconhecido pela didatica excepcional e pela maior lista de convenios aceitos entre os cardiologistas do ranking.</div>
       </div>
 
       <div class="card rank-3">
         <div class="rank-badge">3</div>
         <div class="card-name">Dr. Joel Alves Pinho Filho</div>
-        <div class="card-sub">Cardiologia · Holter · MAPA · Avaliação Pré-Operatória</div>
+        <div class="card-sub">Cardiologia &middot; Holter &middot; MAPA &middot; Avaliacao Pre-Operatoria</div>
         <div class="tags">
-          <span class="tag online">Atende Online</span>
+          <span class="tag online"><i data-lucide="video"></i> Atende Online</span>
           <span class="tag">CRM-BA 4077</span>
-          <span class="tag">301 avaliações ⭐ 5.0</span>
+          <span class="tag"><i data-lucide="star"></i> 301 avaliacoes &middot; 5.0</span>
         </div>
         <div class="price-box">
           <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value na">Consultar</span></div>
           <div class="price-row"><span class="price-label">Teleconsulta</span><span class="price-value na">Consultar</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge sim">✓ Aceita convênio</span></div>
-          <div class="convenios-list">Bradesco · Postal Saúde · AMS Petrobrás · Saúde Caixa · Sinam · SulAmérica · TRT 5</div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge sim">Aceita convenio</span></div>
+          <div class="convenios-list">Bradesco &middot; Postal Saude &middot; AMS Petrobras &middot; Saude Caixa &middot; Sinam &middot; SulAmerica &middot; TRT 5</div>
         </div>
         <ul class="contact-list">
-          <li>📍 Av. Anita Garibaldi, 1555 – Ondina, Salvador-BA</li>
-          <li>📞 (71) 3247-8453</li>
+          <li><i data-lucide="map-pin"></i> Av. Anita Garibaldi, 1555 &ndash; Ondina, Salvador-BA</li>
+          <li><i data-lucide="phone"></i> (71) 3247-8453</li>
         </ul>
-        <div class="why"><div class="why-label">Por que é o 3º</div>Décadas de experiência — ex-Presidente da SBC Regional Bahia (2008). Residência em Cardiologia desde 1976. Aceita convênios. Referência em Holter, MAPA e avaliação pré-operatória.</div>
+        <div class="why"><div class="why-label">Por que e o 3o</div>Decadas de experiencia &mdash; ex-Presidente da SBC Regional Bahia (2008). Residencia em Cardiologia desde 1976. Aceita convenios. Referencia em Holter, MAPA e avaliacao pre-operatoria.</div>
       </div>
 
       <div class="card rank-4">
         <div class="rank-badge">4</div>
-        <div class="card-name">Dra. Rúbia Porto</div>
-        <div class="card-sub">Cardiologia · Ecocardiografia com Strain · Telemedicina</div>
+        <div class="card-name">Dra. Rubia Porto</div>
+        <div class="card-sub">Cardiologia &middot; Ecocardiografia com Strain &middot; Telemedicina</div>
         <div class="tags">
-          <span class="tag online">Atende Online (Brasil todo)</span>
+          <span class="tag online"><i data-lucide="video"></i> Atende Online (Brasil todo)</span>
           <span class="tag">CRM-BA 30145</span>
-          <span class="tag">64 avaliações ⭐ 5.0</span>
+          <span class="tag"><i data-lucide="star"></i> 64 avaliacoes &middot; 5.0</span>
         </div>
         <div class="price-box">
           <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value na">Consultar</span></div>
           <div class="price-row"><span class="price-label">Teleconsulta</span><span class="price-value na">Consultar</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge nao">✕ Só particular</span></div>
-          <div class="convenios-list">Emite nota fiscal para reembolso junto ao plano · Aceita PIX, cartão e transferência</div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge nao">So particular</span></div>
+          <div class="convenios-list">Emite nota fiscal para reembolso junto ao plano &middot; Aceita PIX, cartao e transferencia</div>
         </div>
         <ul class="contact-list">
-          <li>📍 R. Waldemar Falcão, 979 – 4º andar, Horto Florestal, Salvador-BA</li>
-          <li>💬 (71) 99708-4646 (WhatsApp)</li>
-          <li>📧 drarubiaportocardiologista@gmail.com</li>
-          <li>📸 <a href="https://instagram.com/drarubiaporto" target="_blank">@drarubiaporto</a></li>
-          <li>🌐 <a href="https://drarubiaporto.com.br" target="_blank">drarubiaporto.com.br</a></li>
+          <li><i data-lucide="map-pin"></i> R. Waldemar Falcao, 979 &ndash; 4o andar, Horto Florestal, Salvador-BA</li>
+          <li><i data-lucide="message-circle"></i> (71) 99708-4646 (WhatsApp)</li>
+          <li><i data-lucide="mail"></i> drarubiaportocardiologista@gmail.com</li>
+          <li><i data-lucide="instagram"></i> <a href="https://instagram.com/drarubiaporto" target="_blank">@drarubiaporto</a></li>
+          <li><i data-lucide="globe"></i> <a href="https://drarubiaporto.com.br" target="_blank">drarubiaporto.com.br</a></li>
         </ul>
-        <div class="why"><div class="why-label">Por que é a 4ª</div>Fellowship em Ecocardiografia no Hospital Santa Izabel. Título de Especialista em Ecocardiografia pela SBC/DIC. Telemedicina para todo o Brasil. Atendimento sem pressa e humanizado.</div>
+        <div class="why"><div class="why-label">Por que e a 4a</div>Fellowship em Ecocardiografia no Hospital Santa Izabel. Titulo de Especialista em Ecocardiografia pela SBC/DIC. Telemedicina para todo o Brasil. Atendimento sem pressa e humanizado.</div>
       </div>
 
       <div class="card rank-5">
         <div class="rank-badge">5</div>
         <div class="card-name">Dr. Alessandre Caputo Rabelo</div>
-        <div class="card-sub">Eletrofisiologia · Arritmologia · Marcapasso · CDI</div>
+        <div class="card-sub">Eletrofisiologia &middot; Arritmologia &middot; Marcapasso &middot; CDI</div>
         <div class="tags">
-          <span class="tag online">Atende Online</span>
+          <span class="tag online"><i data-lucide="video"></i> Atende Online</span>
           <span class="tag">CRM-BA 19409</span>
-          <span class="tag">36 avaliações ⭐ 5.0</span>
+          <span class="tag"><i data-lucide="star"></i> 36 avaliacoes &middot; 5.0</span>
         </div>
         <div class="price-box">
           <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value na">Consultar</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge sim">✓ Aceita convênio</span></div>
-          <div class="convenios-list">Amil · ASSEFAZ · Bradesco · Cassi · GEAP · AMS Petrobrás · SulAmérica · ABET</div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge sim">Aceita convenio</span></div>
+          <div class="convenios-list">Amil &middot; ASSEFAZ &middot; Bradesco &middot; Cassi &middot; GEAP &middot; AMS Petrobras &middot; SulAmerica &middot; ABET</div>
         </div>
         <ul class="contact-list">
-          <li>📍 Hospital Santa Izabel – 2º andar, Sala 214, Salvador-BA</li>
+          <li><i data-lucide="map-pin"></i> Hospital Santa Izabel &ndash; 2o andar, Sala 214, Salvador-BA</li>
         </ul>
-        <div class="why"><div class="why-label">Por que é o 5º</div>Um dos poucos especialistas em Eletrofisiologia Invasiva de Salvador. Realiza ablação por cateter, implante de marcapasso bicameral e CDI. Referência regional para arritmias complexas.</div>
+        <div class="why"><div class="why-label">Por que e o 5o</div>Um dos poucos especialistas em Eletrofisiologia Invasiva de Salvador. Realiza ablacao por cateter, implante de marcapasso bicameral e CDI. Referencia regional para arritmias complexas.</div>
       </div>
 
     </div>
@@ -252,145 +258,145 @@
   <!-- ===== ENDOCRINOLOGIA ===== -->
   <section class="section" id="endo">
     <div class="section-header">
-      <div class="section-icon color-endo">🔬</div>
+      <div class="section-icon color-endo"><i data-lucide="flask-conical"></i></div>
       <h2>Endocrinologistas</h2>
       <span class="count">Top 5</span>
     </div>
     <div class="market-avg">
-      <strong>Média de mercado em Salvador:</strong> Consulta presencial R$ 400–R$ 800 · Teleconsulta R$ 300–R$ 750 · A maioria dos endocrinologistas top atende só particular; convênios mais comuns: Bradesco Saúde, Cassi e Mediservice.
+      <strong>Media de mercado em Salvador:</strong> Consulta presencial R$ 400&ndash;R$ 800 &middot; Teleconsulta R$ 300&ndash;R$ 750 &middot; A maioria dos endocrinologistas top atende so particular; convenios mais comuns: Bradesco Saude, Cassi e Mediservice.
     </div>
     <div class="cards">
 
       <div class="card rank-1">
         <div class="rank-badge">1</div>
         <div class="card-name">Dra. Taciane Mega</div>
-        <div class="card-sub">Endocrinologia · Diabetologia · Obesidade · Tireoide · Reposição Hormonal</div>
+        <div class="card-sub">Endocrinologia &middot; Diabetologia &middot; Obesidade &middot; Tireoide &middot; Reposicao Hormonal</div>
         <div class="tags">
-          <span class="tag online">Atende Online</span>
+          <span class="tag online"><i data-lucide="video"></i> Atende Online</span>
           <span class="tag">CRM-BA 24155</span>
-          <span class="tag">870 avaliações ⭐ 5.0</span>
+          <span class="tag"><i data-lucide="star"></i> 870 avaliacoes &middot; 5.0</span>
           <span class="tag">10+ anos</span>
         </div>
         <div class="price-box">
           <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value">A partir de R$ 750</span></div>
           <div class="price-row"><span class="price-label">Teleconsulta</span><span class="price-value">R$ 750</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge nao">✕ Só particular</span></div>
-          <div class="convenios-list">Aceita PIX, cartão de crédito/débito e transferência bancária</div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge nao">So particular</span></div>
+          <div class="convenios-list">Aceita PIX, cartao de credito/debito e transferencia bancaria</div>
         </div>
         <ul class="contact-list">
-          <li>📍 Edifício Louis Pasteur, Av. ACM, 585 – Sala 607, Itaigara, Salvador-BA</li>
-          <li>📞 (71) 3239-2634</li>
-          <li>💬 (71) 99693-4622 (WhatsApp)</li>
-          <li>📸 <a href="https://instagram.com/dratacianemega" target="_blank">@dratacianemega</a></li>
-          <li>🌐 <a href="https://tacianemega.com.br" target="_blank">tacianemega.com.br</a></li>
+          <li><i data-lucide="map-pin"></i> Edificio Louis Pasteur, Av. ACM, 585 &ndash; Sala 607, Itaigara, Salvador-BA</li>
+          <li><i data-lucide="phone"></i> (71) 3239-2634</li>
+          <li><i data-lucide="message-circle"></i> (71) 99693-4622 (WhatsApp)</li>
+          <li><i data-lucide="instagram"></i> <a href="https://instagram.com/dratacianemega" target="_blank">@dratacianemega</a></li>
+          <li><i data-lucide="globe"></i> <a href="https://tacianemega.com.br" target="_blank">tacianemega.com.br</a></li>
         </ul>
-        <div class="why"><div class="why-label">Por que é a melhor</div>Endocrinologista mais avaliada de Salvador — 870 opiniões com nota máxima. Titulada pela SBEM desde 2012. Residência em Clínica Médica (Hospital da Baleia/MG) e especialização em Endocrinologia (Hospital Madre Teresa/MG). Referência em diabetes, SOP, tireoide e menopausa.</div>
+        <div class="why"><div class="why-label">Por que e a melhor</div>Endocrinologista mais avaliada de Salvador &mdash; 870 opinioes com nota maxima. Titulada pela SBEM desde 2012. Residencia em Clinica Medica (Hospital da Baleia/MG) e especializacao em Endocrinologia (Hospital Madre Teresa/MG). Referencia em diabetes, SOP, tireoide e menopausa.</div>
       </div>
 
       <div class="card rank-2">
         <div class="rank-badge">2</div>
-        <div class="card-name">Dr. Márcio Xenofonte Siebra</div>
-        <div class="card-sub">Endocrinologia · Obesidade · Tireoide · SOP · Dislipidemia</div>
+        <div class="card-name">Dr. Marcio Xenofonte Siebra</div>
+        <div class="card-sub">Endocrinologia &middot; Obesidade &middot; Tireoide &middot; SOP &middot; Dislipidemia</div>
         <div class="tags">
-          <span class="tag online">Atende Online</span>
+          <span class="tag online"><i data-lucide="video"></i> Atende Online</span>
           <span class="tag">CRM-BA 19042</span>
-          <span class="tag">663 avaliações ⭐ 5.0</span>
+          <span class="tag"><i data-lucide="star"></i> 663 avaliacoes &middot; 5.0</span>
         </div>
         <div class="price-box">
           <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value">R$ 600</span></div>
           <div class="price-row"><span class="price-label">Teleconsulta</span><span class="price-value">R$ 600</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge sim">✓ Aceita convênio</span></div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge sim">Aceita convenio</span></div>
           <div class="convenios-list">Cassi</div>
         </div>
         <ul class="contact-list">
-          <li>📍 Clínica Metta – Mundo Plaza Empresarial, Av. Tancredo Neves, 620 – Caminho das Árvores, Salvador-BA</li>
-          <li>📞 (71) 3271-5217</li>
+          <li><i data-lucide="map-pin"></i> Clinica Metta &ndash; Mundo Plaza Empresarial, Av. Tancredo Neves, 620 &ndash; Caminho das Arvores, Salvador-BA</li>
+          <li><i data-lucide="phone"></i> (71) 3271-5217</li>
         </ul>
-        <div class="why"><div class="why-label">Por que é o 2º</div>663 avaliações nota 5.0. Formado pela UFC (2004), residências em Clínica Médica (Hospital Santa Marcelina/SP) e Endocrinologia (Hospital Roberto Santos/SSA). Titulado SBEM desde 2011. Fundador da Clínica Metta. Aceita Cassi.</div>
+        <div class="why"><div class="why-label">Por que e o 2o</div>663 avaliacoes nota 5.0. Formado pela UFC (2004), residencias em Clinica Medica (Hospital Santa Marcelina/SP) e Endocrinologia (Hospital Roberto Santos/SSA). Titulado SBEM desde 2011. Fundador da Clinica Metta. Aceita Cassi.</div>
       </div>
 
       <div class="card rank-3">
         <div class="rank-badge">3</div>
         <div class="card-name">Dra. Sarah Carolinne Silva de Matos</div>
-        <div class="card-sub">Endocrinologia · Obesidade · Tireoide · Reposição Hormonal · Diabetologia</div>
+        <div class="card-sub">Endocrinologia &middot; Obesidade &middot; Tireoide &middot; Reposicao Hormonal &middot; Diabetologia</div>
         <div class="tags">
-          <span class="tag online">Atende Online</span>
+          <span class="tag online"><i data-lucide="video"></i> Atende Online</span>
           <span class="tag">CRM-BA 25822</span>
-          <span class="tag">329 avaliações ⭐ 5.0</span>
+          <span class="tag"><i data-lucide="star"></i> 329 avaliacoes &middot; 5.0</span>
         </div>
         <div class="price-box">
           <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value">R$ 650</span></div>
           <div class="price-row"><span class="price-label">Teleconsulta</span><span class="price-value">R$ 550</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge sim">✓ Aceita convênio</span></div>
-          <div class="convenios-list">Hapvida · Bradesco · SulAmérica · Amil · Unimed · Prevent Senior · Porto Seguro · Assim Saúde · NotreDame Intermédica</div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge sim">Aceita convenio</span></div>
+          <div class="convenios-list">Hapvida &middot; Bradesco &middot; SulAmerica &middot; Amil &middot; Unimed &middot; Prevent Senior &middot; Porto Seguro &middot; Assim Saude &middot; NotreDame Intermedica</div>
         </div>
         <ul class="contact-list">
-          <li>📍 Av. Antônio Carlos Magalhães, 3244 – Caminho das Árvores, Salvador-BA</li>
-          <li>💬 (77) 99904-6664 (WhatsApp)</li>
-          <li>📸 <a href="https://instagram.com/drasarahcarolinne" target="_blank">@drasarahcarolinne</a></li>
-          <li>🌐 <a href="https://drasarahcarolinne.com.br" target="_blank">drasarahcarolinne.com.br</a></li>
+          <li><i data-lucide="map-pin"></i> Av. Antonio Carlos Magalhaes, 3244 &ndash; Caminho das Arvores, Salvador-BA</li>
+          <li><i data-lucide="message-circle"></i> (77) 99904-6664 (WhatsApp)</li>
+          <li><i data-lucide="instagram"></i> <a href="https://instagram.com/drasarahcarolinne" target="_blank">@drasarahcarolinne</a></li>
+          <li><i data-lucide="globe"></i> <a href="https://drasarahcarolinne.com.br" target="_blank">drasarahcarolinne.com.br</a></li>
         </ul>
-        <div class="why"><div class="why-label">Por que é a 3ª</div>329 avaliações nota 5.0. Formação internacional — Medicina na Universidade de Santiago de Compostela (Espanha), residência em Endocrinologia na USP. Titulada SBEM e ABESO. Maior lista de convênios aceitos entre os endocrinologistas do ranking (9+).</div>
+        <div class="why"><div class="why-label">Por que e a 3a</div>329 avaliacoes nota 5.0. Formacao internacional &mdash; Medicina na Universidade de Santiago de Compostela (Espanha), residencia em Endocrinologia na USP. Titulada SBEM e ABESO. Maior lista de convenios aceitos entre os endocrinologistas do ranking (9+).</div>
       </div>
 
       <div class="card rank-4">
         <div class="rank-badge">4</div>
         <div class="card-name">Dra. Lilian Elias Chehade</div>
-        <div class="card-sub">Endocrinologia · Diabetes · Tireoide · Obesidade · Osteoporose</div>
+        <div class="card-sub">Endocrinologia &middot; Diabetes &middot; Tireoide &middot; Obesidade &middot; Osteoporose</div>
         <div class="tags">
-          <span class="tag online">Atende Online</span>
+          <span class="tag online"><i data-lucide="video"></i> Atende Online</span>
           <span class="tag">CRM-BA 13144</span>
-          <span class="tag">310 avaliações ⭐ 5.0</span>
+          <span class="tag"><i data-lucide="star"></i> 310 avaliacoes &middot; 5.0</span>
           <span class="tag">24+ anos</span>
         </div>
         <div class="price-box">
           <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value">R$ 500</span></div>
           <div class="price-row"><span class="price-label">Teleconsulta</span><span class="price-value">R$ 400</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge sim">✓ Aceita convênio</span></div>
-          <div class="convenios-list">Bradesco Saúde · Mediservice · TRT 5 Saúde</div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge sim">Aceita convenio</span></div>
+          <div class="convenios-list">Bradesco Saude &middot; Mediservice &middot; TRT 5 Saude</div>
         </div>
         <ul class="contact-list">
-          <li>📍 Centro Médico Garibaldi, Av. Anita Garibaldi, 1555 – Sala 901, Ondina, Salvador-BA</li>
-          <li>📞 (71) 3245-9787</li>
-          <li>💬 (71) 99405-4355 (WhatsApp)</li>
-          <li>📸 <a href="https://instagram.com/dralilianchehade" target="_blank">@dralilianchehade</a></li>
+          <li><i data-lucide="map-pin"></i> Centro Medico Garibaldi, Av. Anita Garibaldi, 1555 &ndash; Sala 901, Ondina, Salvador-BA</li>
+          <li><i data-lucide="phone"></i> (71) 3245-9787</li>
+          <li><i data-lucide="message-circle"></i> (71) 99405-4355 (WhatsApp)</li>
+          <li><i data-lucide="instagram"></i> <a href="https://instagram.com/dralilianchehade" target="_blank">@dralilianchehade</a></li>
         </ul>
-        <div class="why"><div class="why-label">Por que é a 4ª</div>310 avaliações nota 5.0. 24+ anos de experiência. Formada pela Escola Bahiana de Medicina, com fellow internacional em Endocrinologia no Hospital São Jorge (Beirute, Líbano). Melhor custo-benefício do ranking — R$ 400 na teleconsulta. Aceita Bradesco e Mediservice.</div>
+        <div class="why"><div class="why-label">Por que e a 4a</div>310 avaliacoes nota 5.0. 24+ anos de experiencia. Formada pela Escola Bahiana de Medicina, com fellow internacional em Endocrinologia no Hospital Sao Jorge (Beirute, Libano). Melhor custo-beneficio do ranking &mdash; R$ 400 na teleconsulta. Aceita Bradesco e Mediservice.</div>
       </div>
 
       <div class="card rank-5">
         <div class="rank-badge">5</div>
         <div class="card-name">Dra. Leila Maria Batista Araujo</div>
-        <div class="card-sub">Endocrinologia · Diabetologia · Obesidade · Tireoide</div>
+        <div class="card-sub">Endocrinologia &middot; Diabetologia &middot; Obesidade &middot; Tireoide</div>
         <div class="tags">
           <span class="tag">CRM-BA 5197</span>
-          <span class="tag">219 avaliações ⭐ 5.0</span>
+          <span class="tag"><i data-lucide="star"></i> 219 avaliacoes &middot; 5.0</span>
           <span class="tag">40+ anos</span>
         </div>
         <div class="price-box">
           <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value">R$ 500</span></div>
           <div class="price-row"><span class="price-label">Teleconsulta</span><span class="price-value na">Consultar</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge sim">✓ Aceita convênio</span></div>
-          <div class="convenios-list">Bradesco Saúde · Cassi · AMS Petrobrás · Sinam</div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge sim">Aceita convenio</span></div>
+          <div class="convenios-list">Bradesco Saude &middot; Cassi &middot; AMS Petrobras &middot; Sinam</div>
         </div>
         <ul class="contact-list">
-          <li>📍 Av. Reitor Miguel Calmon, 1210 – Sala 615, Centro Médico do Vale, Canela, Salvador-BA</li>
+          <li><i data-lucide="map-pin"></i> Av. Reitor Miguel Calmon, 1210 &ndash; Sala 615, Centro Medico do Vale, Canela, Salvador-BA</li>
         </ul>
-        <div class="why"><div class="why-label">Por que é a 5ª</div>Referência acadêmica máxima — Professora Titular da UFBA, doutorado em Endocrinologia pela USP e pós-doutorado em Harvard (Joslin Diabetes Center). 219 avaliações nota 5.0. Membro da Academia de Medicina da Bahia. Ex-VP da SBEM Regional Bahia. Aceita 4 convênios.</div>
+        <div class="why"><div class="why-label">Por que e a 5a</div>Referencia academica maxima &mdash; Professora Titular da UFBA, doutorado em Endocrinologia pela USP e pos-doutorado em Harvard (Joslin Diabetes Center). 219 avaliacoes nota 5.0. Membro da Academia de Medicina da Bahia. Ex-VP da SBEM Regional Bahia. Aceita 4 convenios.</div>
       </div>
 
     </div>
   </section>
 
-  <!-- ===== NUTRIÇÃO ===== -->
+  <!-- ===== NUTRICAO ===== -->
   <section class="section" id="nutri">
     <div class="section-header">
-      <div class="section-icon color-nutri">🥗</div>
+      <div class="section-icon color-nutri"><i data-lucide="leaf"></i></div>
       <h2>Nutricionistas</h2>
       <span class="count">Top 5</span>
     </div>
@@ -399,118 +405,118 @@
       <div class="card rank-1">
         <div class="rank-badge">1</div>
         <div class="card-name">Juliana Sobral</div>
-        <div class="card-sub">Nutrição Clínica · Ortomolecular · Nutrigenômica · Esportiva</div>
+        <div class="card-sub">Nutricao Clinica &middot; Ortomolecular &middot; Nutrigenomica &middot; Esportiva</div>
         <div class="tags">
-          <span class="tag online">Atende Online</span>
+          <span class="tag online"><i data-lucide="video"></i> Atende Online</span>
           <span class="tag">CRN-5/3427</span>
-          <span class="tag">44 avaliações ⭐ 5.0</span>
+          <span class="tag"><i data-lucide="star"></i> 44 avaliacoes &middot; 5.0</span>
         </div>
         <div class="price-box">
           <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value">R$ 700</span></div>
           <div class="price-row"><span class="price-label">Teleconsulta</span><span class="price-value">R$ 550</span></div>
-          <div class="price-row"><span class="price-label">Retorno (até 30 dias)</span><span class="price-value">Gratuito</span></div>
+          <div class="price-row"><span class="price-label">Retorno (ate 30 dias)</span><span class="price-value">Gratuito</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge nao">✕ Só particular</span></div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge nao">So particular</span></div>
         </div>
         <ul class="contact-list">
-          <li>📍 Alameda das Cajazeiras, 482 B – Caminho das Árvores, Salvador-BA</li>
-          <li>💬 (71) 98344-2024 (WhatsApp)</li>
-          <li>📧 contato@nutrijulianasobral.com.br</li>
-          <li>📸 <a href="https://instagram.com/nutrijulianasobral" target="_blank">@nutrijulianasobral</a></li>
-          <li>🌐 <a href="https://nutrijulianasobral.com.br" target="_blank">nutrijulianasobral.com.br</a></li>
+          <li><i data-lucide="map-pin"></i> Alameda das Cajazeiras, 482 B &ndash; Caminho das Arvores, Salvador-BA</li>
+          <li><i data-lucide="message-circle"></i> (71) 98344-2024 (WhatsApp)</li>
+          <li><i data-lucide="mail"></i> contato@nutrijulianasobral.com.br</li>
+          <li><i data-lucide="instagram"></i> <a href="https://instagram.com/nutrijulianasobral" target="_blank">@nutrijulianasobral</a></li>
+          <li><i data-lucide="globe"></i> <a href="https://nutrijulianasobral.com.br" target="_blank">nutrijulianasobral.com.br</a></li>
         </ul>
-        <div class="why"><div class="why-label">Por que é a melhor</div>13–16 anos de experiência. Pós-graduada em Nutrição Ortomolecular com ênfase em Nutrigenômica. Tecnologias avançadas: Biofeedback, ILIB, Hidrovitalis, Bioimpedância e termografia. Única com preços totalmente transparentes.</div>
+        <div class="why"><div class="why-label">Por que e a melhor</div>13&ndash;16 anos de experiencia. Pos-graduada em Nutricao Ortomolecular com enfase em Nutrigenomica. Tecnologias avancadas: Biofeedback, ILIB, Hidrovitalis, Bioimpedancia e termografia. Unica com precos totalmente transparentes.</div>
       </div>
 
       <div class="card rank-2">
         <div class="rank-badge">2</div>
         <div class="card-name">Renata Oliveira</div>
-        <div class="card-sub">Nutrição Renal · Diabetes · Saúde da Mulher · Gastrointestinal</div>
+        <div class="card-sub">Nutricao Renal &middot; Diabetes &middot; Saude da Mulher &middot; Gastrointestinal</div>
         <div class="tags">
-          <span class="tag online">Atende Online</span>
+          <span class="tag online"><i data-lucide="video"></i> Atende Online</span>
           <span class="tag">CRN-5 BA 1810</span>
-          <span class="tag">261 avaliações ⭐ 5.0</span>
+          <span class="tag"><i data-lucide="star"></i> 261 avaliacoes &middot; 5.0</span>
         </div>
         <div class="price-box">
           <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value na">Consultar diretamente</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge nao">✕ Só particular</span></div>
-          <div class="convenios-list">Aceita PIX, cartão, dinheiro e transferência · Tel: (71) 3511-0046</div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge nao">So particular</span></div>
+          <div class="convenios-list">Aceita PIX, cartao, dinheiro e transferencia &middot; Tel: (71) 3511-0046</div>
         </div>
         <ul class="contact-list">
-          <li>📍 Av. ACM, 2671 – Brotas / Caminho das Árvores, Salvador-BA</li>
-          <li>📞 (71) 3511-0046</li>
+          <li><i data-lucide="map-pin"></i> Av. ACM, 2671 &ndash; Brotas / Caminho das Arvores, Salvador-BA</li>
+          <li><i data-lucide="phone"></i> (71) 3511-0046</li>
         </ul>
-        <div class="why"><div class="why-label">Por que é a 2ª</div>Doutora em Medicina e Saúde Humana (UFBA), Mestre em Ciência dos Alimentos, professora de pós-graduação desde 2007. 261 avaliações verificadas — uma das mais avaliadas de Salvador.</div>
+        <div class="why"><div class="why-label">Por que e a 2a</div>Doutora em Medicina e Saude Humana (UFBA), Mestre em Ciencia dos Alimentos, professora de pos-graduacao desde 2007. 261 avaliacoes verificadas &mdash; uma das mais avaliadas de Salvador.</div>
       </div>
 
       <div class="card rank-3">
         <div class="rank-badge">3</div>
         <div class="card-name">Andreia Sheila Ferreira</div>
-        <div class="card-sub">Nutrição Pediátrica · Materno-Infantil · Gestação</div>
+        <div class="card-sub">Nutricao Pediatrica &middot; Materno-Infantil &middot; Gestacao</div>
         <div class="tags">
-          <span class="tag online">Atende Online</span>
+          <span class="tag online"><i data-lucide="video"></i> Atende Online</span>
           <span class="tag">CRN-5/4449</span>
-          <span class="tag">131 avaliações ⭐ 5.0</span>
+          <span class="tag"><i data-lucide="star"></i> 131 avaliacoes &middot; 5.0</span>
         </div>
         <div class="price-box">
           <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value na">Consultar diretamente</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge nao">✕ Só particular</span></div>
-          <div class="convenios-list">Aceita dinheiro, cheque e transferência bancária · (71) 3113-1540</div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge nao">So particular</span></div>
+          <div class="convenios-list">Aceita dinheiro, cheque e transferencia bancaria &middot; (71) 3113-1540</div>
         </div>
         <ul class="contact-list">
-          <li>📍 Av. Tancredo Neves, 1632 – Caminho das Árvores, Salvador-BA</li>
-          <li>📞 (71) 3113-1540</li>
-          <li>🌐 <a href="https://andreiasheilaferreira.com.br" target="_blank">andreiasheilaferreira.com.br</a></li>
+          <li><i data-lucide="map-pin"></i> Av. Tancredo Neves, 1632 &ndash; Caminho das Arvores, Salvador-BA</li>
+          <li><i data-lucide="phone"></i> (71) 3113-1540</li>
+          <li><i data-lucide="globe"></i> <a href="https://andreiasheilaferreira.com.br" target="_blank">andreiasheilaferreira.com.br</a></li>
         </ul>
-        <div class="why"><div class="why-label">Por que é a 3ª</div>Pós-graduada em Nutrição Pediátrica, Escolar e do Adolescente. Referência em nutrição pediátrica e materno-infantil em Salvador. Dois consultórios em pontos estratégicos da cidade.</div>
+        <div class="why"><div class="why-label">Por que e a 3a</div>Pos-graduada em Nutricao Pediatrica, Escolar e do Adolescente. Referencia em nutricao pediatrica e materno-infantil em Salvador. Dois consultorios em pontos estrategicos da cidade.</div>
       </div>
 
       <div class="card rank-4">
         <div class="rank-badge">4</div>
-        <div class="card-name">Érica Bastos Queiroz</div>
-        <div class="card-sub">Saúde da Mulher · SOP · Endometriose · Menopausa · Fertilidade</div>
+        <div class="card-name">Erica Bastos Queiroz</div>
+        <div class="card-sub">Saude da Mulher &middot; SOP &middot; Endometriose &middot; Menopausa &middot; Fertilidade</div>
         <div class="tags">
-          <span class="tag online">Atende Online</span>
+          <span class="tag online"><i data-lucide="video"></i> Atende Online</span>
           <span class="tag">CRN-5/5346</span>
-          <span class="tag">100 avaliações ⭐ 5.0</span>
+          <span class="tag"><i data-lucide="star"></i> 100 avaliacoes &middot; 5.0</span>
         </div>
         <div class="price-box">
           <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value na">Consultar diretamente</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge sim">✓ Aceita reembolso</span></div>
-          <div class="convenios-list">Aceita modalidade reembolso de planos de saúde · Aceita PIX, cartão e transferência</div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge sim">Aceita reembolso</span></div>
+          <div class="convenios-list">Aceita modalidade reembolso de planos de saude &middot; Aceita PIX, cartao e transferencia</div>
         </div>
         <ul class="contact-list">
-          <li>📍 Av. ACM, 1034 – Itaigara, Salvador-BA</li>
-          <li>📸 <a href="https://instagram.com/nutricareclinica" target="_blank">@nutricareclinica</a></li>
-          <li>🌐 <a href="https://clinicanutricare.com.br" target="_blank">clinicanutricare.com.br</a></li>
+          <li><i data-lucide="map-pin"></i> Av. ACM, 1034 &ndash; Itaigara, Salvador-BA</li>
+          <li><i data-lucide="instagram"></i> <a href="https://instagram.com/nutricareclinica" target="_blank">@nutricareclinica</a></li>
+          <li><i data-lucide="globe"></i> <a href="https://clinicanutricare.com.br" target="_blank">clinicanutricare.com.br</a></li>
         </ul>
-        <div class="why"><div class="why-label">Por que é a 4ª</div>Mais de uma década dedicada exclusivamente à saúde hormonal feminina (SOP, endometriose, menopausa, fertilidade). Aceita reembolso de planos — diferencial entre as nutricionistas da lista.</div>
+        <div class="why"><div class="why-label">Por que e a 4a</div>Mais de uma decada dedicada exclusivamente a saude hormonal feminina (SOP, endometriose, menopausa, fertilidade). Aceita reembolso de planos &mdash; diferencial entre as nutricionistas da lista.</div>
       </div>
 
       <div class="card rank-5">
         <div class="rank-badge">5</div>
         <div class="card-name">Airam Henrique Ferreira</div>
-        <div class="card-sub">Nutrição Clínica · Esportiva · Funcional · Pediátrica</div>
+        <div class="card-sub">Nutricao Clinica &middot; Esportiva &middot; Funcional &middot; Pediatrica</div>
         <div class="tags">
-          <span class="tag online">Atende Online</span>
+          <span class="tag online"><i data-lucide="video"></i> Atende Online</span>
           <span class="tag">CRN-5/17690</span>
         </div>
         <div class="price-box">
-          <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value na">Premium $$$ — consultar</span></div>
+          <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value na">Premium $$$ &mdash; consultar</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge nao">✕ Só particular</span></div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge nao">So particular</span></div>
         </div>
         <ul class="contact-list">
-          <li>📍 R. Alceu Amoroso Lima, 276 – 12º andar, Caminho das Árvores, Salvador-BA</li>
-          <li>💬 (71) 99205-2163 (WhatsApp)</li>
-          <li>📧 contato@airamhenriquenutri.com.br</li>
-          <li>📸 <a href="https://instagram.com/airamhenriquenutri" target="_blank">@airamhenriquenutri</a></li>
-          <li>🌐 <a href="https://airamhenriquenutri.com.br" target="_blank">airamhenriquenutri.com.br</a></li>
+          <li><i data-lucide="map-pin"></i> R. Alceu Amoroso Lima, 276 &ndash; 12o andar, Caminho das Arvores, Salvador-BA</li>
+          <li><i data-lucide="message-circle"></i> (71) 99205-2163 (WhatsApp)</li>
+          <li><i data-lucide="mail"></i> contato@airamhenriquenutri.com.br</li>
+          <li><i data-lucide="instagram"></i> <a href="https://instagram.com/airamhenriquenutri" target="_blank">@airamhenriquenutri</a></li>
+          <li><i data-lucide="globe"></i> <a href="https://airamhenriquenutri.com.br" target="_blank">airamhenriquenutri.com.br</a></li>
         </ul>
-        <div class="why"><div class="why-label">Por que é o 5º</div>Experiência em clubes de futebol e restaurantes de alto nível em Salvador. Horário ampliado (7h–21h, seg–sáb). Atende presencial e online.</div>
+        <div class="why"><div class="why-label">Por que e o 5o</div>Experiencia em clubes de futebol e restaurantes de alto nivel em Salvador. Horario ampliado (7h&ndash;21h, seg&ndash;sab). Atende presencial e online.</div>
       </div>
 
     </div>
@@ -519,8 +525,8 @@
   <!-- ===== NUTROLOGIA ===== -->
   <section class="section" id="nutro">
     <div class="section-header">
-      <div class="section-icon color-nutro">💊</div>
-      <h2>Nutrológos</h2>
+      <div class="section-icon color-nutro"><i data-lucide="pill"></i></div>
+      <h2>Nutrologos</h2>
       <span class="count">Top 5</span>
     </div>
     <div class="cards">
@@ -528,125 +534,125 @@
       <div class="card rank-1">
         <div class="rank-badge">1</div>
         <div class="card-name">Dr. Fabrizio Silveira</div>
-        <div class="card-sub">Nutrologia Funcional · Emagrecimento · Atletas · Disbiose</div>
+        <div class="card-sub">Nutrologia Funcional &middot; Emagrecimento &middot; Atletas &middot; Disbiose</div>
         <div class="tags">
-          <span class="tag online">Atende Online</span>
+          <span class="tag online"><i data-lucide="video"></i> Atende Online</span>
           <span class="tag">CRM-BA 19048</span>
-          <span class="tag">283 avaliações ⭐ 5.0</span>
+          <span class="tag"><i data-lucide="star"></i> 283 avaliacoes &middot; 5.0</span>
         </div>
         <div class="price-box">
           <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value na">Consultar diretamente</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge nao">✕ Só particular</span></div>
-          <div class="convenios-list">Aceita PIX, cartão de crédito/débito e dinheiro · (71) 3190-2046</div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge nao">So particular</span></div>
+          <div class="convenios-list">Aceita PIX, cartao de credito/debito e dinheiro &middot; (71) 3190-2046</div>
         </div>
         <ul class="contact-list">
-          <li>📍 Av. Tancredo Neves, 620 – Mundo Plaza, Sala 513 – Caminho das Árvores</li>
-          <li>📞 (71) 3190-2046</li>
-          <li>💬 (71) 98380-4134 (WhatsApp)</li>
-          <li>📧 contato@institutovanguard.com.br</li>
-          <li>📸 <a href="https://instagram.com/vanguardinstituto" target="_blank">@vanguardinstituto</a></li>
-          <li>🌐 <a href="https://institutovanguard.com.br" target="_blank">institutovanguard.com.br</a></li>
+          <li><i data-lucide="map-pin"></i> Av. Tancredo Neves, 620 &ndash; Mundo Plaza, Sala 513 &ndash; Caminho das Arvores</li>
+          <li><i data-lucide="phone"></i> (71) 3190-2046</li>
+          <li><i data-lucide="message-circle"></i> (71) 98380-4134 (WhatsApp)</li>
+          <li><i data-lucide="mail"></i> contato@institutovanguard.com.br</li>
+          <li><i data-lucide="instagram"></i> <a href="https://instagram.com/vanguardinstituto" target="_blank">@vanguardinstituto</a></li>
+          <li><i data-lucide="globe"></i> <a href="https://institutovanguard.com.br" target="_blank">institutovanguard.com.br</a></li>
         </ul>
-        <div class="why"><div class="why-label">Por que é o melhor</div>#1 no Doctoralia entre nutrológos de Salvador com 283 avaliações. Especialista em Nutrologia Funcional pela ABRAN. Método proprietário ÁXIS + EVA. Atende atletas de alto rendimento nacionais e internacionais.</div>
+        <div class="why"><div class="why-label">Por que e o melhor</div>#1 no Doctoralia entre nutrologos de Salvador com 283 avaliacoes. Especialista em Nutrologia Funcional pela ABRAN. Metodo proprietario AXIS + EVA. Atende atletas de alto rendimento nacionais e internacionais.</div>
       </div>
 
       <div class="card rank-2">
         <div class="rank-badge">2</div>
         <div class="card-name">Dr. Ciro Ventura</div>
-        <div class="card-sub">Medicina de Precisão · Emagrecimento · Reposição Hormonal</div>
+        <div class="card-sub">Medicina de Precisao &middot; Emagrecimento &middot; Reposicao Hormonal</div>
         <div class="tags">
-          <span class="tag online">Atende Online</span>
+          <span class="tag online"><i data-lucide="video"></i> Atende Online</span>
           <span class="tag">CRM-BA 36723</span>
-          <span class="tag">147 avaliações ⭐ 5.0</span>
+          <span class="tag"><i data-lucide="star"></i> 147 avaliacoes &middot; 5.0</span>
         </div>
         <div class="price-box">
           <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value na">Consultar diretamente</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge nao">✕ Só particular</span></div>
-          <div class="convenios-list">Aceita dinheiro, cartão e transferência bancária</div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge nao">So particular</span></div>
+          <div class="convenios-list">Aceita dinheiro, cartao e transferencia bancaria</div>
         </div>
         <ul class="contact-list">
-          <li>📍 R. Dr. José Peroba, 325 – Salas 1406/1407, Costa Azul, Salvador-BA</li>
-          <li>💬 (71) 98217-9687 (WhatsApp)</li>
-          <li>📸 <a href="https://instagram.com/drciroventura" target="_blank">@drciroventura</a></li>
-          <li>🌐 <a href="https://institutociroventura.com.br" target="_blank">institutociroventura.com.br</a></li>
+          <li><i data-lucide="map-pin"></i> R. Dr. Jose Peroba, 325 &ndash; Salas 1406/1407, Costa Azul, Salvador-BA</li>
+          <li><i data-lucide="message-circle"></i> (71) 98217-9687 (WhatsApp)</li>
+          <li><i data-lucide="instagram"></i> <a href="https://instagram.com/drciroventura" target="_blank">@drciroventura</a></li>
+          <li><i data-lucide="globe"></i> <a href="https://institutociroventura.com.br" target="_blank">institutociroventura.com.br</a></li>
         </ul>
-        <div class="why"><div class="why-label">Por que é o 2º</div>Pioneiro em Medicina de Precisão em Salvador. Pós-graduado pelo Hospital Albert Einstein, Harvard e Universidade de Genebra. Clínica multidisciplinar com dermatologia e psicologia.</div>
+        <div class="why"><div class="why-label">Por que e o 2o</div>Pioneiro em Medicina de Precisao em Salvador. Pos-graduado pelo Hospital Albert Einstein, Harvard e Universidade de Genebra. Clinica multidisciplinar com dermatologia e psicologia.</div>
       </div>
 
       <div class="card rank-3">
         <div class="rank-badge">3</div>
         <div class="card-name">Dra. Raffaelle Kasprowicz Barros</div>
-        <div class="card-sub">Endocrinologia · Nutrologia · Obesidade · Tireoide · Diabetes</div>
+        <div class="card-sub">Endocrinologia &middot; Nutrologia &middot; Obesidade &middot; Tireoide &middot; Diabetes</div>
         <div class="tags">
-          <span class="tag online">Atende Online (Brasil todo)</span>
+          <span class="tag online"><i data-lucide="video"></i> Atende Online (Brasil todo)</span>
           <span class="tag">CRM-BA 24145</span>
-          <span class="tag">213 avaliações ⭐ 5.0</span>
+          <span class="tag"><i data-lucide="star"></i> 213 avaliacoes &middot; 5.0</span>
         </div>
         <div class="price-box">
           <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value na">Consultar diretamente</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge sim">✓ Aceita convênio</span></div>
-          <div class="convenios-list">Bradesco Saúde · Sinam · SulAmérica · AMS</div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge sim">Aceita convenio</span></div>
+          <div class="convenios-list">Bradesco Saude &middot; Sinam &middot; SulAmerica &middot; AMS</div>
         </div>
         <ul class="contact-list">
-          <li>📍 Av. Waldemar Falcão, 1774 – Horto Florestal, Salvador-BA</li>
-          <li>📞 (71) 4104-6644</li>
-          <li>💬 (71) 98274-5972 (WhatsApp)</li>
-          <li>📸 <a href="https://instagram.com/clinica.draraffaelle" target="_blank">@clinica.draraffaelle</a></li>
-          <li>🌐 <a href="https://draraffaellebarros.com.br" target="_blank">draraffaellebarros.com.br</a></li>
+          <li><i data-lucide="map-pin"></i> Av. Waldemar Falcao, 1774 &ndash; Horto Florestal, Salvador-BA</li>
+          <li><i data-lucide="phone"></i> (71) 4104-6644</li>
+          <li><i data-lucide="message-circle"></i> (71) 98274-5972 (WhatsApp)</li>
+          <li><i data-lucide="instagram"></i> <a href="https://instagram.com/clinica.draraffaelle" target="_blank">@clinica.draraffaelle</a></li>
+          <li><i data-lucide="globe"></i> <a href="https://draraffaellebarros.com.br" target="_blank">draraffaellebarros.com.br</a></li>
         </ul>
-        <div class="why"><div class="why-label">Por que é a 3ª</div>Única da lista com dupla titulação (Endocrinologia SBEM + Nutrologia ABRAN) e que aceita convênios. Mestre pela UFBA. Expertise nas áreas mais complexas do metabolismo.</div>
+        <div class="why"><div class="why-label">Por que e a 3a</div>Unica da lista com dupla titulacao (Endocrinologia SBEM + Nutrologia ABRAN) e que aceita convenios. Mestre pela UFBA. Expertise nas areas mais complexas do metabolismo.</div>
       </div>
 
       <div class="card rank-4">
         <div class="rank-badge">4</div>
         <div class="card-name">Dr. Carlos Augusto Boscolo</div>
-        <div class="card-sub">Nutrologia · Terapia Nutricional · Nutrição Peri-Bariátrica</div>
+        <div class="card-sub">Nutrologia &middot; Terapia Nutricional &middot; Nutricao Peri-Bariatrica</div>
         <div class="tags">
           <span class="tag">CREMEB 8998</span>
-          <span class="tag">78 avaliações ⭐ 5.0</span>
+          <span class="tag"><i data-lucide="star"></i> 78 avaliacoes &middot; 5.0</span>
           <span class="tag">30+ anos exp.</span>
         </div>
         <div class="price-box">
           <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value na">Consultar diretamente</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge sim">✓ Aceita convênio</span></div>
-          <div class="convenios-list">ASSEFAZ · Bradesco Saúde · Camed · GAMA Saúde · Saúde Caixa · FACHESF</div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge sim">Aceita convenio</span></div>
+          <div class="convenios-list">ASSEFAZ &middot; Bradesco Saude &middot; Camed &middot; GAMA Saude &middot; Saude Caixa &middot; FACHESF</div>
         </div>
         <ul class="contact-list">
-          <li>📍 Av. Tancredo Neves, 620 – Salas 605/606, Salvador-BA</li>
-          <li>💬 (71) 99995-8998 (WhatsApp)</li>
-          <li>📸 <a href="https://instagram.com/drcarlosboscolo" target="_blank">@drcarlosboscolo</a></li>
-          <li>🌐 <a href="https://drcarlosboscolo.com.br" target="_blank">drcarlosboscolo.com.br</a></li>
+          <li><i data-lucide="map-pin"></i> Av. Tancredo Neves, 620 &ndash; Salas 605/606, Salvador-BA</li>
+          <li><i data-lucide="message-circle"></i> (71) 99995-8998 (WhatsApp)</li>
+          <li><i data-lucide="instagram"></i> <a href="https://instagram.com/drcarlosboscolo" target="_blank">@drcarlosboscolo</a></li>
+          <li><i data-lucide="globe"></i> <a href="https://drcarlosboscolo.com.br" target="_blank">drcarlosboscolo.com.br</a></li>
         </ul>
-        <div class="why"><div class="why-label">Por que é o 4º</div>Mais de 30 anos de experiência. Professor na UNIFACS. Aceita convênios. Expertise rara em nutrição peri-bariátrica (pré e pós-cirurgia de obesidade). Atendimento apenas presencial.</div>
+        <div class="why"><div class="why-label">Por que e o 4o</div>Mais de 30 anos de experiencia. Professor na UNIFACS. Aceita convenios. Expertise rara em nutricao peri-bariatrica (pre e pos-cirurgia de obesidade). Atendimento apenas presencial.</div>
       </div>
 
       <div class="card rank-5">
         <div class="rank-badge">5</div>
-        <div class="card-name">Dr. João Zallio Coelho</div>
-        <div class="card-sub">Endocrinologia · Nutrologia · Medicina de Família · Longevidade</div>
+        <div class="card-name">Dr. Joao Zallio Coelho</div>
+        <div class="card-sub">Endocrinologia &middot; Nutrologia &middot; Medicina de Familia &middot; Longevidade</div>
         <div class="tags">
-          <span class="tag online">Atende Online (Brasil todo)</span>
+          <span class="tag online"><i data-lucide="video"></i> Atende Online (Brasil todo)</span>
           <span class="tag">CRM-BA 21150</span>
-          <span class="tag">149 avaliações ⭐ 5.0</span>
+          <span class="tag"><i data-lucide="star"></i> 149 avaliacoes &middot; 5.0</span>
         </div>
         <div class="price-box">
           <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value na">Consultar diretamente</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge nao">✕ Só particular</span></div>
-          <div class="convenios-list">Avaliação prévia gratuita pelo site · Aceita PIX, cartão e transferência</div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge nao">So particular</span></div>
+          <div class="convenios-list">Avaliacao previa gratuita pelo site &middot; Aceita PIX, cartao e transferencia</div>
         </div>
         <ul class="contact-list">
-          <li>📍 Av. Luís Viana Filho, 6462 – Torre A, Sala 204 – Paralela, Salvador-BA</li>
-          <li>💬 (71) 9186-4168 (WhatsApp)</li>
-          <li>📧 contato@institutojz.com.br</li>
-          <li>📸 <a href="https://instagram.com/instituto_jz" target="_blank">@instituto_jz</a></li>
-          <li>🌐 <a href="https://institutojz.com.br" target="_blank">institutojz.com.br</a></li>
+          <li><i data-lucide="map-pin"></i> Av. Luis Viana Filho, 6462 &ndash; Torre A, Sala 204 &ndash; Paralela, Salvador-BA</li>
+          <li><i data-lucide="message-circle"></i> (71) 9186-4168 (WhatsApp)</li>
+          <li><i data-lucide="mail"></i> contato@institutojz.com.br</li>
+          <li><i data-lucide="instagram"></i> <a href="https://instagram.com/instituto_jz" target="_blank">@instituto_jz</a></li>
+          <li><i data-lucide="globe"></i> <a href="https://institutojz.com.br" target="_blank">institutojz.com.br</a></li>
         </ul>
-        <div class="why"><div class="why-label">Por que é o 5º</div>Visão integrativa única: médico de família + endocrinologista + nutrólogo. Mestre em Saúde da Família. Professor e Preceptor de Medicina na UNIFTC. Avaliação prévia gratuita pelo site.</div>
+        <div class="why"><div class="why-label">Por que e o 5o</div>Visao integrativa unica: medico de familia + endocrinologista + nutrologo. Mestre em Saude da Familia. Professor e Preceptor de Medicina na UNIFTC. Avaliacao previa gratuita pelo site.</div>
       </div>
 
     </div>
@@ -655,121 +661,121 @@
   <!-- ===== PERSONAL TRAINER ===== -->
   <section class="section" id="pt">
     <div class="section-header">
-      <div class="section-icon color-pt">🏋️</div>
+      <div class="section-icon color-pt"><i data-lucide="dumbbell"></i></div>
       <h2>Personal Trainers</h2>
       <span class="count">Top 5</span>
     </div>
     <div class="market-avg">
-      <strong>Média de mercado em Salvador:</strong> R$ 65–90/h (especialistas premium até R$ 150+/h) · Pacotes mensais: R$ 600–R$ 1.800/mês · Consultoria online: R$ 150–R$ 400/mês · Personal trainer não tem cobertura por planos de saúde.
+      <strong>Media de mercado em Salvador:</strong> R$ 65&ndash;90/h (especialistas premium ate R$ 150+/h) &middot; Pacotes mensais: R$ 600&ndash;R$ 1.800/mes &middot; Consultoria online: R$ 150&ndash;R$ 400/mes &middot; Personal trainer nao tem cobertura por planos de saude.
     </div>
     <div class="cards">
 
       <div class="card rank-1">
         <div class="rank-badge">1</div>
         <div class="card-name">Jones Souza</div>
-        <div class="card-sub">Método MTJS · Musculação · Funcional · Corrida · Outdoor</div>
+        <div class="card-sub">Metodo MTJS &middot; Musculacao &middot; Funcional &middot; Corrida &middot; Outdoor</div>
         <div class="tags">
-          <span class="tag online">Atende Online</span>
+          <span class="tag online"><i data-lucide="video"></i> Atende Online</span>
           <span class="tag">CREF 004380-G/BA</span>
           <span class="tag">19 anos exp.</span>
         </div>
         <div class="price-box">
-          <div class="price-row"><span class="price-label">Valor por sessão</span><span class="price-value na">Consultar diretamente</span></div>
-          <div class="price-row"><span class="price-label">Planos mensais/trimestrais</span><span class="price-value na">Disponíveis — consultar</span></div>
+          <div class="price-row"><span class="price-label">Valor por sessao</span><span class="price-value na">Consultar diretamente</span></div>
+          <div class="price-row"><span class="price-label">Planos mensais/trimestrais</span><span class="price-value na">Disponiveis &mdash; consultar</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge nao">✕ Não se aplica</span></div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge nao">Nao se aplica</span></div>
         </div>
         <ul class="contact-list">
-          <li>📍 R. Vicente Batalha, S/N – Costa Azul, Salvador-BA</li>
-          <li>💬 (71) 98154-2972 (WhatsApp)</li>
-          <li>📧 jonesptrainer@gmail.com</li>
-          <li>📸 <a href="https://instagram.com/jonesptrainer" target="_blank">@jonesptrainer</a></li>
-          <li>🌐 <a href="http://www.jonesptrainer.com" target="_blank">jonesptrainer.com</a></li>
+          <li><i data-lucide="map-pin"></i> R. Vicente Batalha, S/N &ndash; Costa Azul, Salvador-BA</li>
+          <li><i data-lucide="message-circle"></i> (71) 98154-2972 (WhatsApp)</li>
+          <li><i data-lucide="mail"></i> jonesptrainer@gmail.com</li>
+          <li><i data-lucide="instagram"></i> <a href="https://instagram.com/jonesptrainer" target="_blank">@jonesptrainer</a></li>
+          <li><i data-lucide="globe"></i> <a href="http://www.jonesptrainer.com" target="_blank">jonesptrainer.com</a></li>
         </ul>
-        <div class="why"><div class="why-label">Por que é o melhor</div>19 anos de experiência. Graduação pela UCSAL, especialização pela UFBA. Professor da rede estadual e municipal de Salvador. Desenvolveu método de treinamento próprio (MTJS). Perfil mais completo e verificado com atendimento presencial + online.</div>
+        <div class="why"><div class="why-label">Por que e o melhor</div>19 anos de experiencia. Graduacao pela UCSAL, especializacao pela UFBA. Professor da rede estadual e municipal de Salvador. Desenvolveu metodo de treinamento proprio (MTJS). Perfil mais completo e verificado com atendimento presencial + online.</div>
       </div>
 
       <div class="card rank-2">
         <div class="rank-badge">2</div>
         <div class="card-name">Angel Cerqueira</div>
-        <div class="card-sub">Emagrecimento · Hipertrofia · Populações Especiais · 3ª Idade</div>
+        <div class="card-sub">Emagrecimento &middot; Hipertrofia &middot; Populacoes Especiais &middot; 3a Idade</div>
         <div class="tags">
           <span class="tag">CREF 006089-G/BA</span>
           <span class="tag">19 anos exp.</span>
           <span class="tag">Mais procurado (SuperTrainers)</span>
         </div>
         <div class="price-box">
-          <div class="price-row"><span class="price-label">Valor por sessão</span><span class="price-value na">Consultar diretamente</span></div>
+          <div class="price-row"><span class="price-label">Valor por sessao</span><span class="price-value na">Consultar diretamente</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge nao">✕ Não se aplica</span></div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge nao">Nao se aplica</span></div>
         </div>
         <ul class="contact-list">
-          <li>📍 Caminho das Árvores, Salvador-BA</li>
-          <li>📞 (71) 98263-9797</li>
+          <li><i data-lucide="map-pin"></i> Caminho das Arvores, Salvador-BA</li>
+          <li><i data-lucide="phone"></i> (71) 98263-9797</li>
         </ul>
-        <div class="why"><div class="why-label">Por que é o 2º</div>19 anos de experiência. Especialidades amplas incluindo cardíacos, diabéticos, obesos e terceira idade. Maior número de contatos gerados no SuperTrainers entre todos os PTs de Salvador.</div>
+        <div class="why"><div class="why-label">Por que e o 2o</div>19 anos de experiencia. Especialidades amplas incluindo cardiacos, diabeticos, obesos e terceira idade. Maior numero de contatos gerados no SuperTrainers entre todos os PTs de Salvador.</div>
       </div>
 
       <div class="card rank-3">
         <div class="rank-badge">3</div>
         <div class="card-name">Genesis Monteiro</div>
-        <div class="card-sub">Musculação · Hipertrofia · Emagrecimento · Postura · 3ª Idade</div>
+        <div class="card-sub">Musculacao &middot; Hipertrofia &middot; Emagrecimento &middot; Postura &middot; 3a Idade</div>
         <div class="tags">
           <span class="tag">CREF 022157/BA</span>
         </div>
         <div class="price-box">
-          <div class="price-row"><span class="price-label">Valor por sessão</span><span class="price-value na">Consultar diretamente</span></div>
+          <div class="price-row"><span class="price-label">Valor por sessao</span><span class="price-value na">Consultar diretamente</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge nao">✕ Não se aplica</span></div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge nao">Nao se aplica</span></div>
         </div>
         <ul class="contact-list">
-          <li>📍 Salvador-BA</li>
-          <li>📞 (71) 98555-1448</li>
-          <li>📸 <a href="https://instagram.com/treinocomgenesis" target="_blank">@treinocomgenesis</a></li>
+          <li><i data-lucide="map-pin"></i> Salvador-BA</li>
+          <li><i data-lucide="phone"></i> (71) 98555-1448</li>
+          <li><i data-lucide="instagram"></i> <a href="https://instagram.com/treinocomgenesis" target="_blank">@treinocomgenesis</a></li>
         </ul>
-        <div class="why"><div class="why-label">Por que é o 3º</div>CREF ativo no estado da Bahia. Presença digital confirmada com perfil ativo no Instagram. Especialidades abrangentes com foco em hipertrofia e emagrecimento.</div>
+        <div class="why"><div class="why-label">Por que e o 3o</div>CREF ativo no estado da Bahia. Presenca digital confirmada com perfil ativo no Instagram. Especialidades abrangentes com foco em hipertrofia e emagrecimento.</div>
       </div>
 
       <div class="card rank-4">
         <div class="rank-badge">4</div>
         <div class="card-name">Luan Motta</div>
-        <div class="card-sub">Emagrecimento · Hipertrofia · TRX · Pós-Operatório · Gestantes</div>
+        <div class="card-sub">Emagrecimento &middot; Hipertrofia &middot; TRX &middot; Pos-Operatorio &middot; Gestantes</div>
         <div class="tags">
           <span class="tag">CREF 017467-G/BA</span>
           <span class="tag">9+ anos exp.</span>
           <span class="tag">Mais visualizado (SuperTrainers)</span>
         </div>
         <div class="price-box">
-          <div class="price-row"><span class="price-label">Valor por sessão</span><span class="price-value">~R$ 80/h</span></div>
-          <div class="price-row"><span class="price-label">1ª aula</span><span class="price-value">Gratuita</span></div>
+          <div class="price-row"><span class="price-label">Valor por sessao</span><span class="price-value">~R$ 80/h</span></div>
+          <div class="price-row"><span class="price-label">1a aula</span><span class="price-value">Gratuita</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge nao">✕ Não se aplica</span></div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge nao">Nao se aplica</span></div>
         </div>
         <ul class="contact-list">
-          <li>📍 Pituba, Salvador-BA</li>
-          <li>📞 (71) 98525-6271</li>
+          <li><i data-lucide="map-pin"></i> Pituba, Salvador-BA</li>
+          <li><i data-lucide="phone"></i> (71) 98525-6271</li>
         </ul>
-        <div class="why"><div class="why-label">Por que é o 4º</div>Bacharel em Ed. Física pela UNIP. 9+ anos de experiência. Perfil mais visualizado no SuperTrainers em Salvador (720 visualizações). 21 modalidades. Primeira aula gratuita.</div>
+        <div class="why"><div class="why-label">Por que e o 4o</div>Bacharel em Ed. Fisica pela UNIP. 9+ anos de experiencia. Perfil mais visualizado no SuperTrainers em Salvador (720 visualizacoes). 21 modalidades. Primeira aula gratuita.</div>
       </div>
 
       <div class="card rank-5">
         <div class="rank-badge">5</div>
         <div class="card-name">Rodrigo Dencs</div>
-        <div class="card-sub">Treinamento Personalizado · Consultoria Online · Liberação Miofascial</div>
+        <div class="card-sub">Treinamento Personalizado &middot; Consultoria Online &middot; Liberacao Miofascial</div>
         <div class="tags">
-          <span class="tag online">Atende Online</span>
+          <span class="tag online"><i data-lucide="video"></i> Atende Online</span>
           <span class="tag">5.5k seguidores Instagram</span>
         </div>
         <div class="price-box">
-          <div class="price-row"><span class="price-label">Valor por sessão</span><span class="price-value na">Consultar diretamente</span></div>
+          <div class="price-row"><span class="price-label">Valor por sessao</span><span class="price-value na">Consultar diretamente</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge nao">✕ Não se aplica</span></div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge nao">Nao se aplica</span></div>
         </div>
         <ul class="contact-list">
-          <li>📍 Salvador-BA</li>
-          <li>📸 <a href="https://instagram.com/_dencs" target="_blank">@_dencs</a></li>
+          <li><i data-lucide="map-pin"></i> Salvador-BA</li>
+          <li><i data-lucide="instagram"></i> <a href="https://instagram.com/_dencs" target="_blank">@_dencs</a></li>
         </ul>
-        <div class="why"><div class="why-label">Por que é o 5º</div>Maior presença digital verificada no Instagram entre PTs de Salvador (5.546 seguidores). Consultoria online e atendimento presencial. Técnicas complementares como liberação miofascial (cupping).</div>
+        <div class="why"><div class="why-label">Por que e o 5o</div>Maior presenca digital verificada no Instagram entre PTs de Salvador (5.546 seguidores). Consultoria online e atendimento presencial. Tecnicas complementares como liberacao miofascial (cupping).</div>
       </div>
 
     </div>
@@ -778,7 +784,7 @@
   <!-- ===== GASTROENTEROLOGIA ===== -->
   <section class="section" id="gastro">
     <div class="section-header">
-      <div class="section-icon color-gastro">🫁</div>
+      <div class="section-icon color-gastro"><i data-lucide="stethoscope"></i></div>
       <h2>Gastroenterologistas</h2>
       <span class="count">Top 5</span>
     </div>
@@ -786,121 +792,121 @@
 
       <div class="card rank-1">
         <div class="rank-badge">1</div>
-        <div class="card-name">Dr. Vinícius Santos Nunes</div>
-        <div class="card-sub">Hepatologia · Nódulos Hepáticos · Câncer de Fígado · Pâncreas</div>
+        <div class="card-name">Dr. Vinicius Santos Nunes</div>
+        <div class="card-sub">Hepatologia &middot; Nodulos Hepaticos &middot; Cancer de Figado &middot; Pancreas</div>
         <div class="tags">
-          <span class="tag online">Atende Online</span>
+          <span class="tag online"><i data-lucide="video"></i> Atende Online</span>
           <span class="tag">CRM-BA 22701</span>
-          <span class="tag">127 avaliações ⭐ 5.0</span>
+          <span class="tag"><i data-lucide="star"></i> 127 avaliacoes &middot; 5.0</span>
         </div>
         <div class="price-box">
           <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value na">Consultar diretamente</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge nao">✕ Só particular</span></div>
-          <div class="convenios-list">Aceita cartão de crédito · Tel: (71) 2108-4810</div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge nao">So particular</span></div>
+          <div class="convenios-list">Aceita cartao de credito &middot; Tel: (71) 2108-4810</div>
         </div>
         <ul class="contact-list">
-          <li>📍 Av. Juracy Magalhães Jr., 2096 – Sala 601, Rio Vermelho, Salvador-BA</li>
-          <li>📞 (71) 2108-4810 / (71) 2108-5600</li>
-          <li>📧 contato@drviniciusnunes.com.br</li>
-          <li>📸 <a href="https://instagram.com/snunesvinicius02" target="_blank">@snunesvinicius02</a></li>
-          <li>🌐 <a href="https://drviniciusnunes.com.br" target="_blank">drviniciusnunes.com.br</a></li>
+          <li><i data-lucide="map-pin"></i> Av. Juracy Magalhaes Jr., 2096 &ndash; Sala 601, Rio Vermelho, Salvador-BA</li>
+          <li><i data-lucide="phone"></i> (71) 2108-4810 / (71) 2108-5600</li>
+          <li><i data-lucide="mail"></i> contato@drviniciusnunes.com.br</li>
+          <li><i data-lucide="instagram"></i> <a href="https://instagram.com/snunesvinicius02" target="_blank">@snunesvinicius02</a></li>
+          <li><i data-lucide="globe"></i> <a href="https://drviniciusnunes.com.br" target="_blank">drviniciusnunes.com.br</a></li>
         </ul>
-        <div class="why"><div class="why-label">Por que é o melhor</div>Doutorado em Hepatologia pela UFBA, Residência pela USP, especialização na Universidade de Barcelona. Coordenador dos ambulatórios de Hepatotoxicidade e Nódulos Hepáticos da UFBA. Pesquisador do Instituto D'Or (IDOR).</div>
+        <div class="why"><div class="why-label">Por que e o melhor</div>Doutorado em Hepatologia pela UFBA, Residencia pela USP, especializacao na Universidade de Barcelona. Coordenador dos ambulatorios de Hepatotoxicidade e Nodulos Hepaticos da UFBA. Pesquisador do Instituto D'Or (IDOR).</div>
       </div>
 
       <div class="card rank-2">
         <div class="rank-badge">2</div>
         <div class="card-name">Dra. Aline Correia de Araujo Plenas</div>
-        <div class="card-sub">Gastroenterologia · Endoscopia Digestiva · H. pylori · Refluxo</div>
+        <div class="card-sub">Gastroenterologia &middot; Endoscopia Digestiva &middot; H. pylori &middot; Refluxo</div>
         <div class="tags">
-          <span class="tag online">Atende Online</span>
+          <span class="tag online"><i data-lucide="video"></i> Atende Online</span>
           <span class="tag">CRM-BA 23198</span>
-          <span class="tag">123 avaliações ⭐ 5.0</span>
+          <span class="tag"><i data-lucide="star"></i> 123 avaliacoes &middot; 5.0</span>
         </div>
         <div class="price-box">
           <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value na">Consultar diretamente</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge sim">✓ Aceita convênio</span></div>
-          <div class="convenios-list">HapVida · Bradesco · SulAmérica · Amil · Unimed · Prevent Senior · Porto Seguro · Assim Saúde · NotreDame Intermédica · GEAP · e outros</div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge sim">Aceita convenio</span></div>
+          <div class="convenios-list">HapVida &middot; Bradesco &middot; SulAmerica &middot; Amil &middot; Unimed &middot; Prevent Senior &middot; Porto Seguro &middot; Assim Saude &middot; NotreDame Intermedica &middot; GEAP &middot; e outros</div>
         </div>
         <ul class="contact-list">
-          <li>📍 Av. Prof. Magalhães Neto, 1681 – Pituba, Salvador-BA</li>
-          <li>📞 (71) 3270-9200 / (71) 3024-7900</li>
-          <li>🌐 <a href="https://clinicagastroimagem.com.br" target="_blank">clinicagastroimagem.com.br</a></li>
+          <li><i data-lucide="map-pin"></i> Av. Prof. Magalhaes Neto, 1681 &ndash; Pituba, Salvador-BA</li>
+          <li><i data-lucide="phone"></i> (71) 3270-9200 / (71) 3024-7900</li>
+          <li><i data-lucide="globe"></i> <a href="https://clinicagastroimagem.com.br" target="_blank">clinicagastroimagem.com.br</a></li>
         </ul>
-        <div class="why"><div class="why-label">Por que é a 2ª</div>Maior cobertura de convênios entre os gastroenterologistas da lista (10+ planos). Entre os três mais bem avaliados de Salvador. Abordagem integrada de doenças funcionais digestivas.</div>
+        <div class="why"><div class="why-label">Por que e a 2a</div>Maior cobertura de convenios entre os gastroenterologistas da lista (10+ planos). Entre os tres mais bem avaliados de Salvador. Abordagem integrada de doencas funcionais digestivas.</div>
       </div>
 
       <div class="card rank-3">
         <div class="rank-badge">3</div>
-        <div class="card-name">Dra. Cândida Andrade Lima Leitão Guerra</div>
-        <div class="card-sub">Gastroenterologia · Hepatologia · Endoscopia Digestiva</div>
+        <div class="card-name">Dra. Candida Andrade Lima Leitao Guerra</div>
+        <div class="card-sub">Gastroenterologia &middot; Hepatologia &middot; Endoscopia Digestiva</div>
         <div class="tags">
-          <span class="tag online">Atende Online</span>
+          <span class="tag online"><i data-lucide="video"></i> Atende Online</span>
           <span class="tag">CRM-BA 22925</span>
-          <span class="tag">122 avaliações ⭐ 5.0</span>
+          <span class="tag"><i data-lucide="star"></i> 122 avaliacoes &middot; 5.0</span>
         </div>
         <div class="price-box">
-          <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value">R$ 200–300</span></div>
+          <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value">R$ 200&ndash;300</span></div>
           <div class="price-row"><span class="price-label">Teleconsulta</span><span class="price-value">R$ 350</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge sim">✓ Aceita convênio</span></div>
-          <div class="convenios-list">TRT 5 · CASSI · Amil · Bradesco · Assefaz · GEAP · Mediservice · AMS Petrobrás · Saúde Caixa · Sinam · SulAmérica · Unimed · FACHESF · FUSEX · e outros 6+</div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge sim">Aceita convenio</span></div>
+          <div class="convenios-list">TRT 5 &middot; CASSI &middot; Amil &middot; Bradesco &middot; Assefaz &middot; GEAP &middot; Mediservice &middot; AMS Petrobras &middot; Saude Caixa &middot; Sinam &middot; SulAmerica &middot; Unimed &middot; FACHESF &middot; FUSEX &middot; e outros 6+</div>
         </div>
         <ul class="contact-list">
-          <li>📍 Hospital de Endoscopia Ramiro Mascarenhas – R. Pará, 221, Salvador-BA</li>
-          <li>📞 (71) 3333-7070</li>
-          <li>🌐 <a href="https://hospitaldeendoscopia.com.br" target="_blank">hospitaldeendoscopia.com.br</a></li>
+          <li><i data-lucide="map-pin"></i> Hospital de Endoscopia Ramiro Mascarenhas &ndash; R. Para, 221, Salvador-BA</li>
+          <li><i data-lucide="phone"></i> (71) 3333-7070</li>
+          <li><i data-lucide="globe"></i> <a href="https://hospitaldeendoscopia.com.br" target="_blank">hospitaldeendoscopia.com.br</a></li>
         </ul>
-        <div class="why"><div class="why-label">Por que é a 3ª</div>Triple board: Gastroenterologia + Hepatologia + Endoscopia. Uma das mais acessíveis em preço e convênios da lista. Valores transparentes: R$ 200–300 presencial / R$ 350 teleconsulta. Atua no principal hospital de endoscopia de Salvador.</div>
+        <div class="why"><div class="why-label">Por que e a 3a</div>Triple board: Gastroenterologia + Hepatologia + Endoscopia. Uma das mais acessiveis em preco e convenios da lista. Valores transparentes: R$ 200&ndash;300 presencial / R$ 350 teleconsulta. Atua no principal hospital de endoscopia de Salvador.</div>
       </div>
 
       <div class="card rank-4">
         <div class="rank-badge">4</div>
         <div class="card-name">Dra. Ana Luiza Vilar Guedes</div>
-        <div class="card-sub">Gastroenterologia · Hepatologia · Eixo Intestino-Cérebro · Intolerâncias</div>
+        <div class="card-sub">Gastroenterologia &middot; Hepatologia &middot; Eixo Intestino-Cerebro &middot; Intolerancias</div>
         <div class="tags">
-          <span class="tag online">Atende Online (Brasil + exterior)</span>
+          <span class="tag online"><i data-lucide="video"></i> Atende Online (Brasil + exterior)</span>
           <span class="tag">CRM-BA 22098</span>
         </div>
         <div class="price-box">
           <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value na">Consultar via WhatsApp</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge nao">✕ Só particular</span></div>
-          <div class="convenios-list">Emite recibo para reembolso junto ao plano ou dedução no IR · (71) 99929-9903</div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge nao">So particular</span></div>
+          <div class="convenios-list">Emite recibo para reembolso junto ao plano ou deducao no IR &middot; (71) 99929-9903</div>
         </div>
         <ul class="contact-list">
-          <li>📍 R. Arthur de Azevêdo Machado, 1459 – 25º andar, Costa Azul, Salvador-BA</li>
-          <li>💬 (71) 99929-9903 (WhatsApp)</li>
-          <li>📧 contato@draanaluizaguedes.com.br</li>
-          <li>📸 <a href="https://instagram.com/draanaluizaguedes" target="_blank">@draanaluizaguedes</a></li>
-          <li>🌐 <a href="https://draanaluizaguedes.com.br" target="_blank">draanaluizaguedes.com.br</a></li>
+          <li><i data-lucide="map-pin"></i> R. Arthur de Azevedo Machado, 1459 &ndash; 25o andar, Costa Azul, Salvador-BA</li>
+          <li><i data-lucide="message-circle"></i> (71) 99929-9903 (WhatsApp)</li>
+          <li><i data-lucide="mail"></i> contato@draanaluizaguedes.com.br</li>
+          <li><i data-lucide="instagram"></i> <a href="https://instagram.com/draanaluizaguedes" target="_blank">@draanaluizaguedes</a></li>
+          <li><i data-lucide="globe"></i> <a href="https://draanaluizaguedes.com.br" target="_blank">draanaluizaguedes.com.br</a></li>
         </ul>
-        <div class="why"><div class="why-label">Por que é a 4ª</div>Doutorado pela USP com Residência no HC FM-USP. Professora associada da UNEB. Vencedora do Prêmio Jovem Gastro FBG 2015 (1º lugar). Única com atendimento internacional ativo via telemedicina.</div>
+        <div class="why"><div class="why-label">Por que e a 4a</div>Doutorado pela USP com Residencia no HC FM-USP. Professora associada da UNEB. Vencedora do Premio Jovem Gastro FBG 2015 (1o lugar). Unica com atendimento internacional ativo via telemedicina.</div>
       </div>
 
       <div class="card rank-5">
         <div class="rank-badge">5</div>
         <div class="card-name">Dra. Adalgisa Lima de Abreu Angelini</div>
-        <div class="card-sub">Gastroenterologia Clínica · Endoscopia Digestiva · 41+ anos exp.</div>
+        <div class="card-sub">Gastroenterologia Clinica &middot; Endoscopia Digestiva &middot; 41+ anos exp.</div>
         <div class="tags">
           <span class="tag">CRM-BA 10207</span>
-          <span class="tag">57 avaliações ⭐ 5.0</span>
+          <span class="tag"><i data-lucide="star"></i> 57 avaliacoes &middot; 5.0</span>
           <span class="tag">2.500+ pacientes</span>
         </div>
         <div class="price-box">
           <div class="price-row"><span class="price-label">Consulta presencial</span><span class="price-value na">Consultar diretamente</span></div>
           <div class="price-divider"></div>
-          <div class="price-row"><span class="price-label">Convênio</span><span class="convenio-badge nao">✕ Só particular</span></div>
-          <div class="convenios-list">Aceita dinheiro, PIX e cartão de débito · Tel: (71) 99608-7463</div>
+          <div class="price-row"><span class="price-label">Convenio</span><span class="convenio-badge nao">So particular</span></div>
+          <div class="convenios-list">Aceita dinheiro, PIX e cartao de debito &middot; Tel: (71) 99608-7463</div>
         </div>
         <ul class="contact-list">
-          <li>📍 R. Arthur de Azevêdo Machado, 1459 – Costa Azul, Salvador-BA</li>
-          <li>📞 (71) 99608-7463</li>
-          <li>🌐 <a href="https://draadalgisalima.com.br" target="_blank">draadalgisalima.com.br</a></li>
+          <li><i data-lucide="map-pin"></i> R. Arthur de Azevedo Machado, 1459 &ndash; Costa Azul, Salvador-BA</li>
+          <li><i data-lucide="phone"></i> (71) 99608-7463</li>
+          <li><i data-lucide="globe"></i> <a href="https://draadalgisalima.com.br" target="_blank">draadalgisalima.com.br</a></li>
         </ul>
-        <div class="why"><div class="why-label">Por que é a 5ª</div>A médica com maior tempo de experiência da lista (41+ anos). Criadora do Serviço de Endoscopia do Hospital Jorge Novis em Salvador. Título de Especialista em Endoscopia desde 1986. Mais de 2.500 pacientes atendidos.</div>
+        <div class="why"><div class="why-label">Por que e a 5a</div>A medica com maior tempo de experiencia da lista (41+ anos). Criadora do Servico de Endoscopia do Hospital Jorge Novis em Salvador. Titulo de Especialista em Endoscopia desde 1986. Mais de 2.500 pacientes atendidos.</div>
       </div>
 
     </div>
@@ -909,9 +915,10 @@
 </div>
 
 <footer>
-  Pesquisa realizada em 01/04/2026 · Dados coletados de Doctoralia, sites oficiais e Google<br>
-  Valores sujeitos a alteração — confirme diretamente com o profissional antes de agendar · Verifique registros no CFM, CRN e CREF
+  Pesquisa realizada em 01/04/2026 &middot; Dados coletados de Doctoralia, sites oficiais e Google<br>
+  Valores sujeitos a alteracao &mdash; confirme diretamente com o profissional antes de agendar &middot; Verifique registros no CFM, CRN e CREF
 </footer>
 
+<script>lucide.createIcons();</script>
 </body>
 </html>
